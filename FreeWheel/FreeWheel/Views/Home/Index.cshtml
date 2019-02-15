@@ -1,0 +1,25 @@
+﻿@using FreeWheel.ViewModels;
+@model ProgramViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <form asp-controller="Home" asp-action="Index">
+
+        <select asp-for="StationId"
+                asp-items="@(new SelectList(Model.Stations,"StationId","StationName"))">
+            <option>Please select a Station</option>
+        </select>
+        <br /><br /> 
+        <input type="submit" value="Update" />
+
+    </form>
+    <br /><br />
+    <label>Program Name: </label>
+    <input type="text" asp-for="ProgramName" />
+    <br /><br />
+    <label>Flight Date</label>
+    <input type="text" asp-for="FlightDate" />
+</div>
